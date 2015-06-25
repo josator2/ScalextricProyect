@@ -53,7 +53,7 @@ class Sensor():
 	def calculate_Speed(self):
 		self.speed=self.space*3600/(self.time*1000)
 
-sensor_1 = Sensor(21)
+sensor_1 = Sensor(27)
 def loop():
     raw_input()
 def tiempoInicial(self): 
@@ -84,19 +84,9 @@ GPIO.setwarnings(False)
 #configuramos el pin GPIO17 como una salida
 GPIO.setup(sensor_1.pin, GPIO.IN)
 # Creamos las clases sensor necesarias  GPIO.cleanup()  #devuelve los pines a su estado inicial
-
+GPIO.add_event_detect(sensor_1.pin, GPIO.RISING)
 while True:
-	#print "pos: %s" %(sensor_1.isBoolUpDown())
-	if sensor_1.isBoolUpDown():
-		#print "up: %s" %(sensor_1.isBoolUpDown())
-		if sensor_1.isBoolActivate():
-			GPIO.remove_event_detect(sensor_1.pin)
-			GPIO.add_event_detect(sensor_1.pin, GPIO.RISING,callback=tiempoInicial,bouncetime=200)       # Advierte si el pin num_pin se activa
-			sensor_1.setBoolActivate(False)
+	if (GPIO.input(sensor_1) == GPIO.HIGH):
+        	print "1 logico"
 	else:
-		#print "down: %s" %(sensor_1.isBoolUpDown())
-		if sensor_1.isBoolActivate():
-                        GPIO.remove_event_detect(sensor_1.pin)
-                        GPIO.add_event_detect(sensor_1.pin, GPIO.FALLING,callback=tiempoFinal,bouncetime=200)       # Advierte si el pin num_pin se activa
-                        sensor_1.setBoolActivate(False)
-
+		print "0 logico"
