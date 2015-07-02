@@ -91,12 +91,12 @@ while True:
 		#print "up: %s" %(sensor_1.isBoolUpDown())
 		if sensor_1.isBoolActivate():
 			GPIO.remove_event_detect(sensor_1.pin)
-			GPIO.add_event_detect(sensor_1.pin, GPIO.RISING,callback=tiempoInicial,bouncetime=200)       # Advierte si el pin num_pin se activa
+			GPIO.add_event_detect(sensor_1.pin, GPIO.RISING,callback=tiempoInicial)       # Advierte si el pin num_pin se activa
 			sensor_1.setBoolActivate(False)
 	else:
 		#print "down: %s" %(sensor_1.isBoolUpDown())
 		if sensor_1.isBoolActivate():
                         GPIO.remove_event_detect(sensor_1.pin)
-                        GPIO.add_event_detect(sensor_1.pin, GPIO.FALLING,callback=tiempoFinal,bouncetime=200)       # Advierte si el pin num_pin se activa
+                        GPIO.add_event_detect(sensor_1.pin, GPIO.FALLING,callback=tiempoFinal)       # Advierte si el pin num_pin se activa
                         sensor_1.setBoolActivate(False)
 

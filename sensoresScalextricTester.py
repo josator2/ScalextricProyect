@@ -53,7 +53,7 @@ class Sensor():
 	def calculate_Speed(self):
 		self.speed=self.space*3600/(self.time*1000)
 
-sensor_1 = Sensor(27)
+sensor_1 = Sensor(21)
 def loop():
     raw_input()
 def tiempoInicial(self): 
@@ -85,8 +85,12 @@ GPIO.setwarnings(False)
 GPIO.setup(sensor_1.pin, GPIO.IN)
 # Creamos las clases sensor necesarias  GPIO.cleanup()  #devuelve los pines a su estado inicial
 GPIO.add_event_detect(sensor_1.pin, GPIO.RISING)
-while True:
-	if (GPIO.input(sensor_1) == GPIO.HIGH):
-        	print "1 logico"
+res=[]
+i=0
+while i<50000:
+	if (GPIO.input(sensor_1.getPin()) == GPIO.HIGH):
+        	res.append(1)
 	else:
-		print "0 logico"
+		res.append(0)
+	i=i+1
+print res
