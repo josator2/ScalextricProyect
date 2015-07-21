@@ -30,8 +30,8 @@ while(1){
 	while(aux=digitalRead(pin)){
 		usleep(500);
 		printf("coche: %d\n",aux);
-	}
-	
+
+	//clock_gettime(CLOCK_REALTIME,&end);
 	//time=end.tv_sec*1000000000+end.tv_nsec-(start.tv_sec*1000000000+start.tv_nsec);
 	//printf("time: %lf \n",time);
 }
